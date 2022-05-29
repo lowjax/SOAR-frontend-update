@@ -40,7 +40,7 @@ export default function NavbarAdmin() {
 
                
                      <Link className="nav-link text-center" as={Link} to="/AppLogCRUD" element={AppLogCRUD}>
-                     Users List
+                     Log Details
                      </Link>
 
 

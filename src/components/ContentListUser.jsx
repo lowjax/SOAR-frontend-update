@@ -38,44 +38,7 @@ export default function ContentListUser() {
          })
    }, [])
    console.log(content)
-   // console.log(4, content.injury)
-   // var myHeaders = new Headers();
-   // myHeaders.append("Content-Type", "application/json");
-
-   // var requestOptions = {
-   //   // method: 'GET',
-   //   // headers: myHeaders,
-   //   // body: urlencoded,
-   //   // redirect: 'follow'
-   //   credentials: "include",
-   // };
-   // fetch("http://localhost:1235/api/content", requestOptions)
-   //   .then((response) => {
-   //     setContent(response.data)
-   //     console.log(response);
-   //     if (response.status == 200) {
-   //       console.log(response);
-
-   //       // alert("Success! have selected sport of aquired injury.");
-   //       // setOpenModal(true)
-   //       // window.location.href = "ContentListUser";
-   //       return;
-   //     }
-   //   })
-   //   .catch((e) => {
-   //     console.log("response");
-   //     console.log(e);
-   //     alert("Sorry, something isn't right");
-   //     //return;
-   //   })
-   //   .finally(() => {
-   //     setLoading((true));
-   //   });
-
-   // //
-   // useEffect(() => {
-
-   // } , [])
+  
 
    return (
       <div>
