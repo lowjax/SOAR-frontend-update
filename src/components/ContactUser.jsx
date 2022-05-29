@@ -1,5 +1,6 @@
 import React from "react"
 import NavbarUser from "./NavbarUser"
+import FontAwesome from "react-fontawesome"
 
 export default function ContactUser() {
    return (

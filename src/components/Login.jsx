@@ -8,12 +8,40 @@ import CreateAccountAdmin from "./CreateAccountAdmin"
 import { useState, useEffect } from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { Spinner } from "react-bootstrap"
+import { useFormik } from "formik"
+import {MdEmail} from "react-icons/md"
+import {RiLockPasswordFill} from "react-icons/ri"
+
 // import { useCookies } from "react-cookie";
 
 export default function Login() {
    // code funtionality for posting user login
    // //cookie provider details
    // const [cookie, setCookie] = useCookies(['user']);
+   // let validationParamaters = yup.object().shape({
+   //    email: yup
+   //       .string()
+   //       .require("the username field is required")
+   //       .max(10, "must be less than 10 characters")
+   //       .min("must be more than three characters"),
+   //    password: yup.string(),
+   // })
+
+   // let formik = useFormik({
+   //    initialValues: {
+   //       email: "",
+   //       password: "",
+         
+   //    },
+
+   //    validationSchema: validationParamaters,
+   //    onSubmit: (values) => {
+   //       //do something with values
+   //    },
+   // })
+
+  
+  
    const [loading, setLoading] = useState(false)
    const [error, setError] = useState(null)
 
@@ -107,8 +135,12 @@ export default function Login() {
                <h2 className="visually-hidden">Login Form</h2>
                <img src={SoarLogo} heigh={40} />
                <div className="illustration"></div>
+
                <div className="mb-3">
+               <MdEmail/>
+               
                   <input
+
                      className="form-control"
                      type="email"
                      name="email"
@@ -116,8 +148,10 @@ export default function Login() {
                      value={email}
                      onChange={onChangeEmail}
                   />
+                  
                </div>
                <div className="mb-3">
+                  <RiLockPasswordFill/>
                   <input
                      className="form-control"
                      type="password"

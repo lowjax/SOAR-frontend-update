@@ -92,7 +92,7 @@ export default function IndexUser() {
                      onChange={formik.handleChange}
                      value={formik.values.bodyPart}
                      onBlur={formik.handleBlur}>
-                     <option>SELECT BODY PART</option>
+                     <option value= "">SELECT BODY PART</option>
                      <option value="Right Ankle">Right ankle </option>
                      <option value="Left Ankle">Left ankle</option>
                      <option value="Head">Head</option>
