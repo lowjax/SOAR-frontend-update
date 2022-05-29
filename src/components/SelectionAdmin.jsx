@@ -19,7 +19,7 @@ export default function SelectionAdmin() {
                   <div className="carousel-item">
                      <img className="w-100 d-block" src={Skateboard} height={40} alt="Slide Image 2" />
                   </div>
-                  <div clclassNameass="carousel-item">
+                  <div className="carousel-item">
                      <img className="w-100 d-block" src={Surf} height={40} alt="Slide Image 3" />
                   </div>
                </div>
@@ -40,6 +40,8 @@ export default function SelectionAdmin() {
                </ol>
             </div>
          </div>
+
+         
          <div id="selectionContainer1">
             <form className="form-inline">
                <div className="form-group">

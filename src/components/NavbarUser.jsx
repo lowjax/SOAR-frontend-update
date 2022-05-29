@@ -32,16 +32,16 @@ export default function NavbarUser() {
                         Home
                      </Link>
 
-                     <Link className="nav-link text-center" as={Link} to="/ContentListUser" element={ContentListUser}>
-                        Content
-                     </Link>
-
                      <Link className="nav-link text-center" as={Link} to="/SportFilter" element={SportFilter}>
-                        Sport Filter Screen
+                        Sport Filter
                      </Link>
 
                      <Link className="nav-link text-center" as={Link} to="/InjuryFilter" element={InjuryFilter}>
-                        Injury Filter Screen
+                        Injury Filter
+                     </Link>
+
+                     <Link className="nav-link text-center" as={Link} to="/ContentListUser" element={ContentListUser}>
+                        Content
                      </Link>
 
                      <Link className="nav-link text-center" as={Link} to="/FavoritesUser" element={FavoritesUser}>

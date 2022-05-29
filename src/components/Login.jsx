@@ -108,7 +108,7 @@ export default function Login() {
             if (json.user_status == "admin") {
                // let navigate = useNavigate();
                // navigate("/IndexAdmin");
-               window.location.href = "IndexAdmin"
+               window.location.href = "AdminUserCRUD"
             } else if (json.user_status != "admin") {
                window.location.href = "IndexUser"
             }

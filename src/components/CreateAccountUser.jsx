@@ -3,6 +3,9 @@ import NavbarUser from "./NavbarUser"
 import SoarLogo from "../images/SoarLogo.svg"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { useState } from "react"
+import {MdEmail} from "react-icons/md"
+import {RiLockPasswordFill} from "react-icons/ri"
+import {FaUserEdit} from "react-icons/fa"
 
 export default function CreateAccountUser() {
    const [email, setEmail] = useState("")
@@ -79,7 +82,7 @@ export default function CreateAccountUser() {
                   <div className="row form-group">
                      <div className="col-sm-4 label-column">
                         <label className="col-form-label" for="name-input-field">
-                           First Name
+                           First Name <FaUserEdit/>
                         </label>
                      </div>
                      <div className="col-sm-6 input-column">
@@ -93,7 +96,7 @@ export default function CreateAccountUser() {
                         <div className="row form-group" id="LastNameRow">
                            <div className="col-sm-4 label-column">
                               <label className="col-form-label" for="name-input-field">
-                                 Last Name
+                                 Last Name <FaUserEdit/>
                               </label>
                            </div>
                            <div className="col-sm-6 input-column">
@@ -109,7 +112,7 @@ export default function CreateAccountUser() {
                   <div className="row form-group">
                      <div className="col-sm-4 label-column">
                         <label className="col-form-label" for="email-input-field">
-                           Email{" "}
+                           Email{" "} <MdEmail/>
                         </label>
                      </div>
                      <div className="col-sm-6 input-column">
@@ -127,7 +130,8 @@ export default function CreateAccountUser() {
                   <div className="row form-group">
                      <div className="col-sm-4 label-column">
                         <label className="col-form-label" for="pawssword-input-field">
-                           Password{" "}
+                           Password{" "} <RiLockPasswordFill/>
+
                         </label>
                      </div>
                      <div className="col-sm-6 input-column">
