@@ -1,3 +1,4 @@
+
 import React from "react"
 import SoarLogo from "../images/SoarLogo.svg"
 import IndexUser from "./IndexUser"
@@ -202,7 +203,6 @@ export default function Login() {
               Create Account
             </Link>
           
-
          
           <Link
               className="btn btn-primary d-block w-100"
@@ -215,8 +215,6 @@ export default function Login() {
             >
               Log In (ADMIN)
             </Link> 
-
-
             <Link
               className="btn btn-primary d-block w-100"
               role="button"
@@ -228,7 +226,6 @@ export default function Login() {
             >
               Create Account (ADMIN)
             </Link>
-
           <div className="mb-3"></div>
           <a className="forgot">Forgot your email or password?</a> */}
             {/* </form> */}

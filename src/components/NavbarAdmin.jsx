@@ -1,5 +1,5 @@
 import React from "react"
-import { Nav } from "react-bootstrap"
+
 
 import LogoutAdmin from "./LogoutAdmin"
 import SelectionAdmin from "./SelectionAdmin"
@@ -10,6 +10,9 @@ import ContentcontainerAdmin from "./ContentcontainerAdmin"
 import FavoritesAdmin from "./FavoritesAdmin"
 import SoarLogo from "../images/SoarLogo.svg"
 import ThemeAdmin from "./ThemeAdmin"
+import AdminUserCRUD from"./AdminUserCRUD"
+import AppLogCRUD from "./AppLogCRUD"
+
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
@@ -30,6 +33,17 @@ export default function NavbarAdmin() {
                </button>
                <div className="collapse navbar-collapse" id="navcol-1">
                   <ul className="navbar-nav">
+
+                  <Link className="nav-link text-center" as={Link} to="/AdminUserCRUD" element={AdminUserCRUD}>
+                        Users List
+                     </Link>
+
+               
+                     <Link className="nav-link text-center" as={Link} to="/AppLogCRUD" element={AppLogCRUD}>
+                     Users List
+                     </Link>
+
+
                      <Link className="nav-link text-center" as={Link} to="/IndexAdmin" element={IndexAdmin}>
                         Index Admin
                      </Link>
@@ -42,13 +56,13 @@ export default function NavbarAdmin() {
                         Content
                      </Link>
 
-                     <Link className="nav-link text-center" as={Link} to="/SelectionAdmin" element={SelectionAdmin}>
+                     {/* <Link className="nav-link text-center" as={Link} to="/SelectionAdmin" element={SelectionAdmin}>
                         Filter Screen
                      </Link>
 
                      <Link className="nav-link text-center" as={Link} to="/FavoritesAdmin" element={FavoritesAdmin}>
                         Favorites
-                     </Link>
+                     </Link> */}
 
                      <Link className="nav-link text-center" as={Link} to="/ThemeAdmin" element={ThemeAdmin}>
                         Theme Settings
