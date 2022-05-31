@@ -3,6 +3,7 @@
 import React from "react"
 import { Button, Container, Image } from "react-bootstrap"
 import SoarLogo from "../images/SoarLogo.svg"
+import NavbarAdmin from "./NavbarAdmin"
 
 function LeSettings() {
    const [lightMode, setLightMode] = React.useState(false)
@@ -31,6 +32,7 @@ function LeSettings() {
 
    return (
       <div>
+         <NavbarAdmin />
          <br />
          <br />
          <br />

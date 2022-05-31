@@ -32,8 +32,8 @@ export default function UserCRUD(params) {
           
      }, [])
      
-     var myHeaders = new Headers()
-      myHeaders.append("Content-Type", "application/json")
+   //   var myHeaders = new Headers()
+   //    myHeaders.append("Content-Type", "application/json")
 
       // var requestOptions = {
       //    method: 'delete',
@@ -42,16 +42,20 @@ export default function UserCRUD(params) {
       //    // // redirect: 'follow'
       //    // credentials: "include",
       // }
-function deleteUser(params) {
+function deleteUser(email) {
+   console.log(email)
    var requestOptions = {
       method: 'DELETE',
       // // headers: myHeaders,
-      body: params.rows.email,
+      headers: {
+         'Content-Type': "application/json"
+      },
+      body: JSON.stringify({email: email})
       // // redirect: 'follow'
       // credentials: "include",
    }
-     fetch("http://localhost:1235/api/users/delete", + requestOptions)
-     console.log(requestOptions, data)
+     fetch("http://localhost:1235/api/users/delete", requestOptions)
+   //   console.log(requestOptions, data)
      .then((response) => {
       console.log(response)
       if (response.status == 200) {
@@ -91,12 +95,15 @@ function deleteUser(params) {
                            <button className="btn btn-primary" id="favoritesButton" type="button">
                               UPDATE
                            </button>
-                           <button onClick={(params) => {
+                           <button onClick={()=>{deleteUser(users.email)}}>
+                              Delete
+                           </button>
+                           {/* <button onClick={(params) => {
                               setEmail(params.rows.email);deleteUser()
                               }}>
 
                               DELETE
-                           </button>
+                           </button> */}
                         </div>
                      </div>
                   ))}
