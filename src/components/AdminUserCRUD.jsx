@@ -6,7 +6,7 @@ import { useState, useEffect} from "react"
 import { Spinner } from "react-bootstrap"
 import axios from "axios"
 
-export default function UserCRUD(params) {
+export default function UserCRUD() {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
     const [User, setUser] = useState([])

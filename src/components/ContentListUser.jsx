@@ -8,6 +8,7 @@ import NavbarUser from "./NavbarUser"
 import { Spinner } from "react-bootstrap"
 import { useState, useEffect } from "react"
 
+
 // axios.defaults.withCredentials = true
 
 // // import { Content } from "../contentdata";
@@ -44,12 +45,28 @@ export default function ContentListUser() {
       <div>
          <NavbarUser />
          {loading && <Spinner animation="border" />}
-         {error && <div>{`There is a problem fetching the post data - ${error}`}</div>}
+
+         {content &&
+                  content.map(content => (
+                     <div class="card">
+                        <div className="card-body" id="contentCard" key={content.ID}>
+                           
+                           <img id="physioImage" src={PhysioContent} height={40} />
+                           <h4 className="card-title">{content.injury}</h4>
+                           <p className="card-text">{content.file_name}</p>
+                           <button className="btn btn-primary" id="favoritesButton" type="button">
+                              Add to favorites
+                           </button>
+
+                         
+                        </div>
+                     </div>
+                  ))}
+         
+         {/* {error && <div>{`There is a problem fetching the post data - ${error}`}</div>}
+
          <div id="contentContainer">
-            <div className="card-group">
-               {content.map((item) => {
-                  console.log(item)
-               })}
+            <div class="card"  id="contentCard">
 
                {content &&
                   content.map((content) => (
@@ -65,7 +82,7 @@ export default function ContentListUser() {
                      </div>
                   ))}
             </div>
-         </div>
+         </div> */}
       </div>
    )
 }

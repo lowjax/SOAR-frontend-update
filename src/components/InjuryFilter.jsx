@@ -10,6 +10,7 @@ import { useState, useEffect } from "react"
 import { useFormik } from "formik"
 
 export default function SelectionUser(bodyPart) {
+   const [openModal, setOpenModal] = React.useState(false)
    const [loading, setLoading] = useState(false)
    const [error, setError] = useState(null)
    const [sportSelect, setSport] = useState("")
@@ -17,7 +18,7 @@ export default function SelectionUser(bodyPart) {
 
    let formik = useFormik({
       initialValues: {
-         sportSelect: "",
+         setInJury: "",
       },
       // validationSchema: validateFields,
       // onSubmit: (values) => {
@@ -26,7 +27,7 @@ export default function SelectionUser(bodyPart) {
    })
 
    function filterContent() {
-      console.log(bodyPart)
+      console.log(setInjury)
 
       var myHeaders = new Headers()
       myHeaders.append("Content-Type", "application/json", "Access-Control-Allow-Origin", "*")
@@ -43,14 +44,24 @@ export default function SelectionUser(bodyPart) {
          // fetch("http://localhost:1235/api/injury", requestOptions)
          .then((response) => {
             console.log(response)
+            console.log(formik.values.setInjury)
+            
+            
             if (response.status == 200) {
                console.log(response)
 
                alert("Success! have selected injury type.")
+               setOpenModal(true)
+               setInjury(response)
+               console.log(setInjury)
                // setOpenModal(true)
-               window.location.href = "ContentListUser"
+               // window.location.href = "ContentListUser"
                return
             }
+         })
+         .then((data) => {
+            // JSON.response
+            console.log(data)
          })
          .catch((e) => {
             // console.log(bodyContent);
@@ -64,8 +75,11 @@ export default function SelectionUser(bodyPart) {
    }
    //
    useEffect(() => {}, [])
+   console.log(formik.values.setInJury)
 
    return (
+      <>
+      {!openModal && (
       <div>
          <NavbarUser />
          {loading && <Spinner animation="border" />}
@@ -127,5 +141,9 @@ export default function SelectionUser(bodyPart) {
        
          </div>
       </div>
+   )}
+    {openModal && <ContentListUser bodyPart={formik.values.content} />}
+
+</>
    )
 }

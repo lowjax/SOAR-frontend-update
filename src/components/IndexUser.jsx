@@ -2,15 +2,14 @@ import React from "react"
 import NavbarUser from "./NavbarUser"
 import BodyDiagram from "../images/BodyDiagram.svg"
 import { useFormik } from "formik"
-import SelectionUser from "./SportFilter"
+import SportFilter from "./SportFilter"
 import { Spinner } from "react-bootstrap"
 import { useState, useEffect } from "react"
 
-// import Climbing from "../images/Climbing.svg"
-// import Skateboard from "../images/Skateboard.svg"
-// import Surf from "../images/Surf.svg"
-// import { Link } from "react-router-dom";
-// import ContentListUser from "./ContentListUser";
+// import SportFilter from "/.SportFilter"
+
+
+
 
 export default function IndexUser() {
    const [openModal, setOpenModal] = React.useState(false)
@@ -43,6 +42,7 @@ export default function IndexUser() {
          .then((response) => {
             console.log(response)
             console.log(formik.values.bodyPart)
+           
             if (response.status == 200) {
                // console.log(bodyPart);
 
@@ -109,7 +109,7 @@ export default function IndexUser() {
                <br />
             </div>
          )}
-         {openModal && <SelectionUser bodyPart={formik.values.bodyPart} />}
+         {openModal && <SportFilter bodyPart={formik.values.bodyPart} />}
       </>
    )
 }

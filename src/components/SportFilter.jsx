@@ -12,10 +12,11 @@ import { useState, useEffect } from "react"
 import { useFormik } from "formik"
 
 export default function SelectionUser(bodyPart) {
+   const [openModal, setOpenModal] = React.useState(false)
    const [loading, setLoading] = useState(false)
    const [error, setError] = useState(null)
    const [sportSelect, setSport] = useState("")
-   const [injury, setInjury] = useState("")
+  
 
    let formik = useFormik({
       initialValues: {
@@ -32,26 +33,39 @@ export default function SelectionUser(bodyPart) {
 
       var myHeaders = new Headers()
       myHeaders.append("Content-Type", "application/json", "Access-Control-Allow-Origin", "*")
-
+      
+      let test = JSON.stringify(bodyPart)
+      
       var requestOptions = {
-         // method: 'GET',
+         method: 'POST',
          // headers: myHeaders,
          // body: urlencoded,
          // redirect: 'follow'
+         body: test,
          credentials: "include",
       }
-      fetch("http://localhost:1235/api/sport/" + bodyPart.bodyPart, requestOptions)
+      fetch("http://localhost:1235/api/sport/", requestOptions)
          // fetch("http://localhost:1235/api/sport/", requestOptions)
          .then((response) => {
             console.log(response)
+            console.log(formik.values.sportSelect)
+
             if (response.status == 200) {
-               console.log(response)
+               setSport(response)
+               console.log(setSport)
 
                alert("Success! have selected sport of aquired injury.")
+               setOpenModal(true)
+               // sportSelect(response)
+               console.log(sportSelect)
                // setOpenModal(true)
                // window.location.href = "InjuryFilter"
                return
             }
+         })
+         .then((data) => {
+            // JSON.response
+            console.log(data)
          })
          .catch((e) => {
             console.log("response")
@@ -62,35 +76,39 @@ export default function SelectionUser(bodyPart) {
          .finally(() => {
             setLoading(true)
          })
-      fetch("http://localhost:1235/api/injury" + sportSelect, requestOptions)
-         // fetch("http://localhost:1235/api/injury", requestOptions)
-         .then((response) => {
-            console.log(response)
-            if (response.status == 200) {
-               console.log(response)
+      // fetch("http://localhost:1235/api/injury" + sportSelect, requestOptions)
+      //    // fetch("http://localhost:1235/api/injury", requestOptions)
+      //    .then((response) => {
+      //       console.log(response)
+      //       if (response.status == 200) {
+      //          console.log(response)
 
-               alert("Success! have selected injury type.")
-               // setOpenModal(true)
-               window.location.href = "InjuryFilter"
-               return
-            }
-         })
-         .catch((e) => {
-            // console.log(bodyContent);
-            console.log(e)
-            alert("Sorry, something isn't right")
-            //return;
-         })
-         .finally(() => {
-            setLoading(true)
-         })
+      //          alert("Success! have selected injury type.")
+      //          // setOpenModal(true)
+      //          window.location.href = "InjuryFilter"
+      //          return
+      //       }
+      //    })
+      //    .catch((e) => {
+      //       // console.log(bodyContent);
+      //       console.log(e)
+      //       alert("Sorry, something isn't right")
+      //       //return;
+      //    })
+      //    .finally(() => {
+      //       setLoading(true)
+      //    })
    }
    //
    useEffect(() => {}, [])
-
+   console.log(formik.values.sportSelect)
    return (
+      <>
+      {!openModal && (
       <div>
+         
          <NavbarUser />
+         
          {loading && <Spinner animation="border" />}
          {error && <div>{`There is a problem fetching the post data - ${error}`}</div>}
          <div id="carousellContainer">
@@ -143,29 +161,18 @@ export default function SelectionUser(bodyPart) {
                </div>
             </form>
          </div>
-         {/* <div id="selectionContainer2">
-            <form className="form-inline">
-               <div className="form-group">
-                  <label>SELECT INJURY TYPE</label>
-                  <select className="form-control">
-                     <option>---</option>
-                     <option value="Sprain">SPRAIN</option>
-                     <option value="Break">BREAK</option>
-                     <option value="Tear">TEAR</option>
-                  </select>
-               </div>
-            </form>
-         </div> */}
+        
          <div id="selectionContainer">
-            {/* <Link 
-        to="/ContentListUser"
-        as={Link}
-        element={ContentListUser}> */}
+           
             <button className="btn btn-primary" id="fixMeButton" type="button" onClick={filterContent}>
                FIX ME
             </button>
-            {/* </Link> */}
+           
          </div>
       </div>
+   )}
+    {openModal && <InjuryFilter bodyPart={formik.values.sport} />}
+      </>
    )
 }
+
