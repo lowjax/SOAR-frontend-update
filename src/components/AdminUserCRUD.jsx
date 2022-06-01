@@ -32,8 +32,8 @@ export default function UserCRUD(params) {
           
      }, [])
      
-   //   var myHeaders = new Headers()
-   //    myHeaders.append("Content-Type", "application/json")
+     var myHeaders = new Headers()
+      myHeaders.append("Content-Type", "application/json","Access-Control-Allow-Origin", "*","")
 
       // var requestOptions = {
       //    method: 'delete',
@@ -46,9 +46,10 @@ function deleteUser(email) {
    console.log(email)
    var requestOptions = {
       method: 'DELETE',
-      // // headers: myHeaders,
+      headers: myHeaders,
       headers: {
          'Content-Type': "application/json"
+         
       },
       body: JSON.stringify({email: email})
       // // redirect: 'follow'
@@ -101,7 +102,6 @@ function deleteUser(email) {
                            {/* <button onClick={(params) => {
                               setEmail(params.rows.email);deleteUser()
                               }}>
-
                               DELETE
                            </button> */}
                         </div>
@@ -112,4 +112,3 @@ function deleteUser(email) {
         </div>
      )
  }
- 

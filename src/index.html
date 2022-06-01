@@ -28,6 +28,8 @@
 
       <script src="https://kit.fontawesome.com/c1f3f94452.js" crossorigin="anonymous"></script>
 
+      <script src="./serviceWorkerRegistration.js" type="module"></script>
+
 
       <script
          src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -50,15 +52,20 @@
       <script type="module" src="index.js"></script>
       <!-- <link rel="manifest" href=" "> -->
 
-      <script type="module">
-         if ("serviceWorker" in navigator) {
-            window.addEventListener("load", () => {
-               navigator.serviceWorker
-                  .register(new URL("./serviceworker.js", import.meta.url))
-                  .then((reg) => console.log("Success: ", reg.scope))
-                  .catch((err) => console.log("Failure: ", err))
-            })
-         }
-      </script>
+      <!-- <script type="module">
+         // if ("serviceWorker" in navigator) {
+         //    window.addEventListener("load", () => {
+         //       navigator.serviceWorker
+         //          .register(new URL("./serviceworker.js", import.meta.url))
+         //          .then((reg) => console.log("Success: ", reg.scope))
+         //          .catch((err) => console.log("Failure: ", err))
+         //    })
+         // }
+         // if ('serviceWorker' in navigator) {
+         //    navigator.serviceWorker.register(new URL(`service-worker.js`, import.meta.url),
+         //    {type: 'module'});
+         //    }
+            
+      </script> -->
    </body>
 </html>

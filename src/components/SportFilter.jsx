@@ -31,7 +31,7 @@ export default function SelectionUser(bodyPart) {
       console.log(bodyPart)
 
       var myHeaders = new Headers()
-      myHeaders.append("Content-Type", "application/json")
+      myHeaders.append("Content-Type", "application/json", "Access-Control-Allow-Origin", "*")
 
       var requestOptions = {
          // method: 'GET',
