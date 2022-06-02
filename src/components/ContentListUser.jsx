@@ -9,7 +9,7 @@ import { Spinner } from "react-bootstrap"
 import { useState, useEffect } from "react"
 
 
-// axios.defaults.withCredentials = true
+axios.defaults.withCredentials = true
 
 // // import { Content } from "../contentdata";
 
@@ -29,7 +29,7 @@ export default function ContentListUser() {
       axios
          .get("http://localhost:1235/api/content")
          .then((response) => {
-            console.log(response)
+            console.log(1, response)
             // console.log(1, response.data[0])
             setContent(response.data)
          })
@@ -38,7 +38,7 @@ export default function ContentListUser() {
             console.log(error)
          })
    }, [])
-   console.log(content)
+   console.log(2, content)
   
 
    return (
@@ -46,14 +46,14 @@ export default function ContentListUser() {
          <NavbarUser />
          {loading && <Spinner animation="border" />}
 
-         {content &&
-                  content.map(content => (
+         {content ?
+                  content.map(item => (
                      <div class="card">
-                        <div className="card-body" id="contentCard" key={content.ID}>
+                        <div className="card-body" id="contentCard" key={item.ID}>
                            
                            <img id="physioImage" src={PhysioContent} height={40} />
-                           <h4 className="card-title">{content.injury}</h4>
-                           <p className="card-text">{content.file_name}</p>
+                           <h4 className="card-title">{item.injury}</h4>
+                           <p className="card-text">{item.file_name}</p>
                            <button className="btn btn-primary" id="favoritesButton" type="button">
                               Add to favorites
                            </button>
@@ -61,7 +61,7 @@ export default function ContentListUser() {
                          
                         </div>
                      </div>
-                  ))}
+                  )) : null}
          
          {/* {error && <div>{`There is a problem fetching the post data - ${error}`}</div>}
 
