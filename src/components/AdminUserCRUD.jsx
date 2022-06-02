@@ -46,14 +46,13 @@ function deleteUser(email) {
    console.log(email)
    var requestOptions = {
       method: 'DELETE',
-      headers: myHeaders,
+      // headers: myHeaders,
       headers: {
          'Content-Type': "application/json"
-         
       },
-      body: JSON.stringify({email: email})
+      body: JSON.stringify({email: email}),
       // // redirect: 'follow'
-      // credentials: "include",
+      credentials: "include",
    }
      fetch("http://localhost:1235/api/users/delete", requestOptions)
    //   console.log(requestOptions, data)

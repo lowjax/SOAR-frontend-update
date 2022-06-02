@@ -3,36 +3,13 @@ import NavbarUser from "./NavbarUser"
 import { useState } from "react"
 
 export default function LogoutUser() {
-   // code funtionality for posting user logout
-
-   // code funtionality for posting user login
-
-   // const [email, setEmail] = useState("")
-   // const [password, setPassword] = useState("")
-   // // Change values based on event, the event being the form input
-   // const onChangeEmail = (e) => {
-   //   const email = e.target.value;
-   //   setEmail(email);
-   // }
-   // const onChangePassword = (e) => {
-   //   const password = e.target.value;
-   //   setPassword(password);
-   // }
+ 
 
    function logout() {
       console.log("Something")
       var myHeaders = new Headers()
       myHeaders.append("Content-Type", "application/json")
-      // myHeaders.append("Cookie", "connect.sid=s%3AiNey66thtOHrn2SygW8lVhMM61L7q8ev.18el9se6qBgGdY%2BYeUvHotKafiCEPdL2iv6XTNpPsiw");
-
-      // var urlencoded = new URLSearchParams();
-      // urlencoded.append("email", "dallas@thankyou.com");
-      // urlencoded.append("password", "thankyou");
-      // let please = JSON.stringify({
-      //   email: email,
-      //   password: password,
-      // });
-      // let urlencoded = please;
+     
 
       var requestOptions = {
          method: "POST",
