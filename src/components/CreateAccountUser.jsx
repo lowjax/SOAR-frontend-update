@@ -56,9 +56,10 @@ export default function CreateAccountUser() {
 
    return (
       <div>
-         <div className="row register-form">
+         <form className="row register-form">
             <div className="col-md-8 offset-md-2">
                <form
+               onclick={createUser}
                   className="custom-form"
                   //  onSubmit={createUser}
                >
@@ -66,11 +67,7 @@ export default function CreateAccountUser() {
                   <h1>Create Account</h1>
                   <div className="row form-group">
                      <div className="col-sm-4 label-column">
-                        <label className="col-form-label" 
-                        for="name-input-field"
-                         pattern="[A-Za-z0-9\-_\.\@]{4,20}" 
-                         title="two or more characters"
-                         required>
+                        <label className="col-form-label">
                            First Name <FaUserEdit/>
                         </label>
                      </div>
@@ -78,6 +75,11 @@ export default function CreateAccountUser() {
                         <input
                            className="form-control"
                            type="text"
+                          for="name-input-field"
+                         pattern="[A-Za-z0-9\-_\.\@]{4,20}" 
+                         title="two or more characters"
+                         minlength="2"
+                         required
                            // value= {text}
                         />
                      </div>
@@ -85,17 +87,19 @@ export default function CreateAccountUser() {
                         <div className="row form-group" id="LastNameRow">
                            <div className="col-sm-4 label-column">
                               <label className="col-form-label" 
-                              for="name-input-field"
-                              pattern="[A-Za-z0-9\-_\.\@]{4,20}" 
-                              title="two or more characters"
-                              required>
+                              for="name-input-field" >
                                  Last Name <FaUserEdit/>
                               </label>
                            </div>
                            <div className="col-sm-6 input-column">
                               <input
                                  className="form-control"
+                                 for="name-input-field"
+                                 pattern="[A-Za-z0-9\-_\.\@]{4,20}" 
+                                 title="two or more characters"
                                  type="text"
+                                 minlength="2"
+                                 required
                                  //  value= {text}
                               />
                            </div>
@@ -115,9 +119,11 @@ export default function CreateAccountUser() {
                            name="email"
                            placeholder="Email"
                            pattern="[A-Za-z0-9\-_\.\@]{4,20}" title="Four or more characters"
-                           required
+                           required="[A-Za-z0-9\-_\.\@]{4,20}"
+                           minlength="5"
                            value={email}
                            onChange={onChangeEmail}
+                           // onclick={createUser}
                         />
                      </div>
                   </div>
@@ -135,10 +141,13 @@ export default function CreateAccountUser() {
                            type="password"
                            name="password"
                            pattern="[A-Za-z0-9\-_\.\@]{4,20}" title="Four or more characters"
-                           required
+                           // required="[A-Za-z0-9\-_\.\@]{4,20}"
+                           required="@"
+                           minlength="8"
                            placeholder="Password"
                            value={password}
                            onChange={onChangePassword}
+                           // onclick={createUser}
                         />
                      </div>
                   </div>
@@ -151,15 +160,14 @@ export default function CreateAccountUser() {
                   </div>
                   <button
                      className="btn btn-light submit-button"
-                     type="button"
+                     type="submit"
                      id="submitFormButton"
-                     data-bs-target="../access/login.html"
-                     onClick={createUser}>
+                     data-bs-target="../access/login.html">
                      Create Account
                   </button>
                </form>
             </div>
-         </div>
+         </form>
       </div>
    )
 }

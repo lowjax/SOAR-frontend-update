@@ -45,7 +45,7 @@ export default function send() {
                      pattern="[A-Za-z0-9\-_\.\@]{4,20}" title="email must have a subject" minlength="5"
                      required
                      // onChange={onChangeSubject}
-                     onSubmit={send}
+                     // onSubmit={send}
                      placeholder="Subject" />
                   </div>
                   <div className="mb-3">
@@ -55,7 +55,7 @@ export default function send() {
                      pattern="[A-Za-z0-9\-_\.\@]{4,20}" title="Four or more characters"
                      required
                      // onChange={onChangeEmail}
-                     onSubmit={send}
+                     // onSubmit={send}
                      placeholder="Email" />
                      
                      {/* <small className="form-text text-danger">Please enter a correct email address.</small> */}
@@ -68,7 +68,7 @@ export default function send() {
                      pattern="[A-Za-z0-9\-_\.\@]{4,20}" title="message must not be empty" minlength="20"
                      required
                      // onChange={onChangeMessage}
-                     onSubmit={send}
+                     // onSubmit={send}
 
                      rows="14"></textarea>
                   </div>

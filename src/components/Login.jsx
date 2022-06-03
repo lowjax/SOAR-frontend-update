@@ -41,17 +41,13 @@ export default function Login() {
       event.preventDefault()
       var myHeaders = new Headers()
       myHeaders.append("Content-Type", "application/json")
-      // myHeaders.append("Cookie", "connect.sid=s%3AeoWXMsnyAi_F7xK6t9SDqDADcPiah1hN.D7oNoRfUQQXXb9z3cCW0mtK5TOdoIsQHHFcv%2Bo0W9cM");
-
-      // var urlencoded = new URLSearchParams();
+     
       let please = JSON.stringify({
          email: email,
          password: password,
       })
       let urlencoded = please
-      // var urlencoded = JSON.stringify({email: email, password: password})
-
-      // urlencoded.append("email", "password");
+   
 
       var requestOptions = {
          method: "POST",
