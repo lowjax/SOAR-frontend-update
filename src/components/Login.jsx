@@ -36,14 +36,6 @@ export default function Login() {
    const [email, setEmail] = useState("")
    const [password, setPassword] = useState("")
 
-   // const onChangeEmail = (e) => {_
-   //    const email = e.target.value
-   //    setEmail(email)
-   // }
-   // const onChangePassword = (e) => {
-   //    const password = e.target.value
-   //    setPassword(password)
-   // }
 
    const login = (event) => {
       event.preventDefault()
@@ -148,6 +140,7 @@ export default function Login() {
                      name="password"
                      pattern="[A-Za-z0-9\-_\.]{4,20}" 
                      title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"
+                     minlength="8"
                      placeholder="Password"
                      value={password}
                      onChange={onChangePassword}
