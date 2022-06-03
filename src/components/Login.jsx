@@ -126,6 +126,7 @@ export default function Login() {
                      name="email"
                      placeholder="Email"
                      pattern="[A-Za-z0-9\-_\.\@]{4,20}" title="Four or more characters"
+                     required
                      value={email}
                      onChange={onChangeEmail}
                      onSubmit={login}
@@ -142,6 +143,7 @@ export default function Login() {
                      title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"
                      minlength="8"
                      placeholder="Password"
+                     required
                      value={password}
                      onChange={onChangePassword}
                      onSubmit={login}

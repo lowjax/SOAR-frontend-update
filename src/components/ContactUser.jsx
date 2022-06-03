@@ -43,6 +43,7 @@ export default function send() {
                      <input className="form-control" 
                      type="text " 
                      pattern="[A-Za-z0-9\-_\.\@]{4,20}" title="email must have a subject" minlength="5"
+                     required
                      // onChange={onChangeSubject}
                      onSubmit={send}
                      placeholder="Subject" />
@@ -52,6 +53,7 @@ export default function send() {
                      <input className="form-control is-invalid" 
                      type="email" name="email" 
                      pattern="[A-Za-z0-9\-_\.\@]{4,20}" title="Four or more characters"
+                     required
                      // onChange={onChangeEmail}
                      onSubmit={send}
                      placeholder="Email" />
@@ -63,7 +65,8 @@ export default function send() {
                      <textarea className="form-control" 
                      name="message" 
                      placeholder="Message" 
-                     pattern="[A-Za-z0-9\-_\.\@]{4,20}" title="message must not be empty" minlength="5"
+                     pattern="[A-Za-z0-9\-_\.\@]{4,20}" title="message must not be empty" minlength="20"
+                     required
                      // onChange={onChangeMessage}
                      onSubmit={send}
 

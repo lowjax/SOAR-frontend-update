@@ -20,17 +20,6 @@ export default function CreateAccountUser() {
       setPassword(password)
    }
 
-   // const createUser = (event) => {
-
-   //   event.preventDefault()
-   //   var myHeaders = new Headers();
-   //   myHeaders.append("Content-Type", "application/json");
-
-   //   let please = JSON.stringify({
-   //     email: email,
-   //     password: password
-   // })
-   // let urlencoded = please
 
    function createUser(event) {
       event.preventDefault()
@@ -55,11 +44,7 @@ export default function CreateAccountUser() {
                window.location.href = "Login"
                return
             }
-            //IF invalid password, do something to tell user
-            // else {
-            //   alert("Invalid password, try again.");
-            // }
-            // window.location.href= "IndexUser";
+           
          })
          .catch((e) => {
             // console.log(bodyContent)
@@ -81,7 +66,11 @@ export default function CreateAccountUser() {
                   <h1>Create Account</h1>
                   <div className="row form-group">
                      <div className="col-sm-4 label-column">
-                        <label className="col-form-label" for="name-input-field">
+                        <label className="col-form-label" 
+                        for="name-input-field"
+                         pattern="[A-Za-z0-9\-_\.\@]{4,20}" 
+                         title="two or more characters"
+                         required>
                            First Name <FaUserEdit/>
                         </label>
                      </div>
@@ -95,7 +84,11 @@ export default function CreateAccountUser() {
                      <div className="col">
                         <div className="row form-group" id="LastNameRow">
                            <div className="col-sm-4 label-column">
-                              <label className="col-form-label" for="name-input-field">
+                              <label className="col-form-label" 
+                              for="name-input-field"
+                              pattern="[A-Za-z0-9\-_\.\@]{4,20}" 
+                              title="two or more characters"
+                              required>
                                  Last Name <FaUserEdit/>
                               </label>
                            </div>
@@ -121,6 +114,8 @@ export default function CreateAccountUser() {
                            type="email"
                            name="email"
                            placeholder="Email"
+                           pattern="[A-Za-z0-9\-_\.\@]{4,20}" title="Four or more characters"
+                           required
                            value={email}
                            onChange={onChangeEmail}
                         />
@@ -139,25 +134,15 @@ export default function CreateAccountUser() {
                            className="form-control"
                            type="password"
                            name="password"
+                           pattern="[A-Za-z0-9\-_\.\@]{4,20}" title="Four or more characters"
+                           required
                            placeholder="Password"
                            value={password}
                            onChange={onChangePassword}
                         />
                      </div>
                   </div>
-                  {/* <div className="row form-group">
-              <div className="col-sm-4 label-column">
-                <label
-                  className="col-form-label"
-                  for="repeat-pawssword-input-field"
-                >
-                  Repeat Password{" "}
-                </label>
-              </div>
-              <div className="col-sm-6 input-column">
-                <input className="form-control" type="password" />
-              </div>
-            </div> */}
+               
                   <div className="form-check">
                      <input className="form-check-input" type="checkbox" id="formCheck-1" />
                      <label className="form-check-label" for="formCheck-1">
