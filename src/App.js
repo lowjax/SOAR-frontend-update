@@ -6,6 +6,7 @@ import { useCookies } from "react-cookie"
 
 
 
+
 // admin imports
 // import { MyUserForm } from "./components/MyUserForm"
 // import { Button } from "react-bootstrap"
@@ -17,7 +18,7 @@ import IndexAdmin from "./components/IndexAdmin"
 import LogoutAdmin from "./components/LogoutAdmin"
 import SelectionAdmin from "./components/SelectionAdmin"
 import AdminUserCRUD from "./components/AdminUserCRUD"
-import AppLogCRUD from "./components/AppLogCRUD"
+import SportCRUD from "./components/SportCRUD"
 
 // theme component
 import ThemeUser from "./components/ThemeUser"
@@ -114,7 +115,7 @@ export const App = () => {
                <Route path="/LogoutUser" element={<LogoutUser />} />
                <Route path="/CreateAccountUser" element={<CreateAccountUser />} />
 
-               <Route path="/AppLogCRUD" element={<AppLogCRUD />} />
+               <Route path="/SportCRUD" element={<SportCRUD />} />
                <Route path="/AdminUserCRUD" element={<AdminUserCRUD />} />
                <Route path="/IndexAdmin" element={<IndexAdmin />} />
                <Route path="/SelectionAdmin" element={<SelectionAdmin />} />

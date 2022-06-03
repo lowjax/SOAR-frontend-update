@@ -11,7 +11,7 @@ import FavoritesAdmin from "./FavoritesAdmin"
 import SoarLogo from "../images/SoarLogo.svg"
 import ThemeAdmin from "./ThemeAdmin"
 import AdminUserCRUD from"./AdminUserCRUD"
-import AppLogCRUD from "./AppLogCRUD"
+import SportCRUD from "./SportCRUD"
 
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
@@ -39,8 +39,8 @@ export default function NavbarAdmin() {
                      </Link>
 
                
-                     <Link className="nav-link text-center" as={Link} to="/AppLogCRUD" element={AppLogCRUD}>
-                     Log Details
+                     <Link className="nav-link text-center" as={Link} to="/SportCRUD" element={SportCRUD}>
+                     Edit Sport
                      </Link>
 
 

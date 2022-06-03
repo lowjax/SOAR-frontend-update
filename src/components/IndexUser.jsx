@@ -5,6 +5,7 @@ import { useFormik } from "formik"
 import SportFilter from "./SportFilter"
 import { Spinner } from "react-bootstrap"
 import { useState, useEffect } from "react"
+import {BiHelpCircle} from "react-icons/bi"
 
 // import SportFilter from "/.SportFilter"
 
@@ -107,6 +108,8 @@ export default function IndexUser() {
                <br />
                <br />
                <br />
+               <div className="help-circle"><BiHelpCircle /></div>
+               
             </div>
          )}
          {openModal && <SportFilter bodyPart={formik.values.bodyPart} />}

@@ -16,32 +16,19 @@ import {RiLockPasswordFill} from "react-icons/ri"
 // import { useCookies } from "react-cookie";
 
 export default function Login() {
-   // code funtionality for posting user login
-   // //cookie provider details
-   // const [cookie, setCookie] = useCookies(['user']);
-   // let validationParamaters = yup.object().shape({
-   //    email: yup
-   //       .string()
-   //       .require("the username field is required")
-   //       .max(10, "must be less than 10 characters")
-   //       .min("must be more than three characters"),
-   //    password: yup.string(),
-   // })
-
-   // let formik = useFormik({
-   //    initialValues: {
-   //       email: "",
-   //       password: "",
-         
-   //    },
-
-   //    validationSchema: validationParamaters,
-   //    onSubmit: (values) => {
-   //       //do something with values
-   //    },
-   // })
-
   
+
+    const onChangePassword = (e) => {
+       const password = e.target.value;
+       setPassword(password)
+    }
+
+    const onChangeEmail = (e) => {
+       const email = e.target.value;
+       setEmail(email);
+    }
+
+
   
    const [loading, setLoading] = useState(false)
    const [error, setError] = useState(null)
@@ -49,16 +36,16 @@ export default function Login() {
    const [email, setEmail] = useState("")
    const [password, setPassword] = useState("")
 
-   const onChangeEmail = (e) => {
-      const email = e.target.value
-      setEmail(email)
-   }
-   const onChangePassword = (e) => {
-      const password = e.target.value
-      setPassword(password)
-   }
+   // const onChangeEmail = (e) => {_
+   //    const email = e.target.value
+   //    setEmail(email)
+   // }
+   // const onChangePassword = (e) => {
+   //    const password = e.target.value
+   //    setPassword(password)
+   // }
 
-   const loginUser = (event) => {
+   const login = (event) => {
       event.preventDefault()
       var myHeaders = new Headers()
       myHeaders.append("Content-Type", "application/json")
@@ -132,7 +119,7 @@ export default function Login() {
          {loading && <Spinner animation="border" />}
          {error && <div>{`There is a problem fetching the post data - ${error}`}</div>}
          <section className="login-clean">
-            <form onSubmit={loginUser}>
+            <form onSubmit={login}>
                <h2 className="visually-hidden">Login Form</h2>
                <img src={SoarLogo} heigh={40} />
                <div className="illustration"></div>
@@ -146,8 +133,10 @@ export default function Login() {
                      type="email"
                      name="email"
                      placeholder="Email"
+                     pattern="[A-Za-z0-9\-_\.\@]{4,20}" title="Four or more characters"
                      value={email}
                      onChange={onChangeEmail}
+                     onSubmit={login}
                   />
                   
                </div>
@@ -157,9 +146,12 @@ export default function Login() {
                      className="form-control"
                      type="password"
                      name="password"
+                     pattern="[A-Za-z0-9\-_\.]{4,20}" 
+                     title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"
                      placeholder="Password"
                      value={password}
                      onChange={onChangePassword}
+                     onSubmit={login}
                   />
                </div>
                <button type="submit" className="btn btn-primary d-block w-100">
@@ -178,57 +170,7 @@ export default function Login() {
                   Create Account
                </Link>
             </form>
-            {/* <Link
-              className="btn btn-primary d-block w-100"
-              role="button"
-              id="logInButton"
-              as={Link}
-              to="/IndexUser"
-              element={IndexUser}
-              data-bs-target="access/index.html"
-            >
-              Log In
-            </Link>
-          
-          
-            <Link
-              className="btn btn-primary d-block w-100"
-              role="button"
-              id="createAccount"
-              as={Link}
-              to="/CreateAccountUser"
-              element={CreateAccountUser}
-              data-bs-target="access/index.html"
-            >
-              Create Account
-            </Link>
-          
-         
-          <Link
-              className="btn btn-primary d-block w-100"
-              role="button"
-              id="logInButtonAD"
-              as={Link}
-              to="/IndexAdmin"
-              element={IndexAdmin}
-              data-bs-target="access/index.html"
-            >
-              Log In (ADMIN)
-            </Link> 
-            <Link
-              className="btn btn-primary d-block w-100"
-              role="button"
-              id="createAccount"
-              as={Link}
-              to="/CreateAccountAdmin"
-              element={CreateAccountAdmin}
-              data-bs-target="access/index.html"
-            >
-              Create Account (ADMIN)
-            </Link>
-          <div className="mb-3"></div>
-          <a className="forgot">Forgot your email or password?</a> */}
-            {/* </form> */}
+            
          </section>
          <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
       </div>

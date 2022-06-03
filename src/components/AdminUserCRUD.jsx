@@ -20,6 +20,8 @@ export default function UserCRUD() {
     const [user_status, setStatus] = useState({})
     let status=({user_status:user_status})
 
+
+
     
     
 
@@ -96,18 +98,21 @@ var myHeaders = new Headers()
       // }
    
 }
-function updateUser(user_status) {
-   console.log(user_status)
+function updateUser(email) {
+
+   console.log(email)
    var requestOptions = {
       method: 'PATCH',
       // headers: myHeaders,
       headers: {
          'Content-Type': "application/json"
       },
-      body: JSON.stringify({user_status: user_status}),
+      body: JSON.stringify({user_status: user_status, email: email}),
+     
       // // redirect: 'follow'
       credentials: "include",
    }
+  
      fetch("http://localhost:1235/api/users/update", requestOptions)
    //   console.log(requestOptions, data)
      .then((response) => {
