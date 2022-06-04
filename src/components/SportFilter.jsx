@@ -44,8 +44,10 @@ export default function SelectionUser(bodyPart) {
          body: test,
          credentials: "include",
       }
-      fetch("http://localhost:1235/api/sport/", requestOptions)
-         // fetch("http://localhost:1235/api/sport/", requestOptions)
+
+
+      fetch("https://soar-backend.herokuapp.com/api/sport/", requestOptions)
+         // fetch("https://soar-backend.herokuapp.com/api/sport/", requestOptions)
          .then((response) => {
             console.log(response)
             console.log(formik.values.sportSelect)
@@ -76,8 +78,8 @@ export default function SelectionUser(bodyPart) {
          .finally(() => {
             setLoading(true)
          })
-      // fetch("http://localhost:1235/api/injury" + sportSelect, requestOptions)
-      //    // fetch("http://localhost:1235/api/injury", requestOptions)
+      // fetch("https://soar-backend.herokuapp.com/api/injury" + sportSelect, requestOptions)
+      //    // fetch("https://soar-backend.herokuapp.com/api/injury", requestOptions)
       //    .then((response) => {
       //       console.log(response)
       //       if (response.status == 200) {

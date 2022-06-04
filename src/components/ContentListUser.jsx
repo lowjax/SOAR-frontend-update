@@ -20,7 +20,7 @@ export default function ContentListUser() {
    
    useEffect(() => {
       axios
-         .get("http://localhost:1235/api/content")
+         .get("https://soar-backend.herokuapp.com/api/content")
          .then((response) => {
             console.log(1, response)
             // console.log(1, response.data[0])

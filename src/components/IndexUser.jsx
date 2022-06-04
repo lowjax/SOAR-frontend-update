@@ -39,7 +39,7 @@ export default function IndexUser() {
          // redirect: 'follow'
          credentials: "include",
       }
-      fetch("http://localhost:1235/api/body", requestOptions)
+      fetch("https://soar-backend.herokuapp.com/api/body", requestOptions)
          .then((response) => {
             console.log(response)
             console.log(formik.values.bodyPart)
@@ -81,6 +81,7 @@ export default function IndexUser() {
                {loading && <Spinner animation="border" />}
                {error && <div>{`There is a problem fetching the post data - ${error}`}</div>}
                <div id="bodyDigramContainer">
+               <div className="help-circle"><BiHelpCircle /></div>
                   <img id="bodyDiagram" src={BodyDiagram} height={40} />
                </div>
                <div id="bodDiagramText">
@@ -108,7 +109,7 @@ export default function IndexUser() {
                <br />
                <br />
                <br />
-               <div className="help-circle"><BiHelpCircle /></div>
+               
                
             </div>
          )}

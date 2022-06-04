@@ -59,7 +59,7 @@ export default function Login() {
 
       localStorage.setItem("email", email)
 
-      fetch("http://localhost:1235/api/users/login", requestOptions)
+      fetch("https://soar-backend.herokuapp.com/api/users/login", requestOptions)
          // .then(response => response.text())
          // .then(result => console.log(result))
          // .catch(error => console.log('error', error));
@@ -121,7 +121,7 @@ export default function Login() {
                      type="email"
                      name="email"
                      placeholder="Email"
-                     pattern="[A-Za-z0-9\-_\.\@]{4,20}" title="Four or more characters"
+                     // pattern="[A-Za-z0-9\-_\.\@]{4,20}" title="Four or more characters"
                      required
                      value={email}
                      onChange={onChangeEmail}
@@ -135,9 +135,10 @@ export default function Login() {
                      className="form-control"
                      type="password"
                      name="password"
-                     pattern="[A-Za-z0-9\-_\.]{4,20}" 
+                     // pattern="[A-Za-z0-9\-_\.]{4,20}" 
+                     
                      title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"
-                     minlength="8"
+               
                      placeholder="Password"
                      required
                      value={password}

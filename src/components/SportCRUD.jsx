@@ -19,7 +19,7 @@ export default function SportCRUD() {
 
         useEffect(() => {
             axios
-               .get("http://localhost:1235/api/sport")
+               .get("https://soar-backend.herokuapp.com/api/sport")
                .then((response) => {
                   console.log(1, response)
                   // console.log(1, response.data[0])

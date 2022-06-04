@@ -34,7 +34,7 @@ export default function CreateAccountUser() {
          credentials: "include",
       }
 
-      fetch("http://localhost:1235/api/users/create", requestOptions)
+      fetch("https://soar-backend.herokuapp.com/api/users/create", requestOptions)
          .then((response) => {
             if (response.status == 200) {
                console.log(response)
@@ -142,7 +142,7 @@ export default function CreateAccountUser() {
                            name="password"
                            pattern="[A-Za-z0-9\-_\.\@]{4,20}" title="Four or more characters"
                            // required="[A-Za-z0-9\-_\.\@]{4,20}"
-                           required="@"
+                           required
                            minlength="8"
                            placeholder="Password"
                            value={password}
